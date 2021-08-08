@@ -6,8 +6,12 @@ import { Avatar, IconButton } from '@material-ui/core';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import AppsIcon from '@material-ui/icons/Apps';
 import NotificationsIcon from '@material-ui/icons/Notifications';
+import { useSelector } from 'react-redux';
+import { selectUser } from './features/userSlice';
 
 function Header() {
+    const user = useSelector(selectUser);
+
     return (
         <div className="header">
             <div className="header__left">
@@ -30,7 +34,7 @@ function Header() {
                 <IconButton>
                     <NotificationsIcon />
                 </IconButton>
-                <Avatar />
+                <Avatar src={user?.photoUrl}/>
             </div>
         </div>
     )
